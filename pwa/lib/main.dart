@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import './widgets/header.dart';
+import './widgets/description.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'PWA',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.orange,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Home Page'),
@@ -40,40 +42,14 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    if (size.width <= 500) {
-      return Scaffold(
+    return Scaffold(
         appBar: AppBar(
           // Here we take the value from the MyHomePage object that was created by
           // the App.build method, and use it to set our appbar title.
           title: Text(widget.title),
         ),
-        body: Center(
-          child: Text('Smartphone'),
-        ),
-      );
-    } else if (size.width <= 1024) {
-      return Scaffold(
-        appBar: AppBar(
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
-          title: Text(widget.title),
-        ),
-        body: Center(
-          child: Text('Tablet'),
-        ),
-      );
-    } else {
-      return Scaffold(
-        appBar: AppBar(
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
-          title: Text(widget.title),
-        ),
-        body: Center(
-          child: Text('PC'),
-        ),
-      );
-    }
+        body: Column(
+          children: [Header(), Description()],
+        ));
   }
 }
