@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './widgets/header.dart';
 import './widgets/description.dart';
+import './widgets/Comments.dart';
 
 void main() {
   runApp(MyApp());
@@ -49,7 +50,11 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(widget.title),
         ),
         body: Column(
-          children: [Header(), Description()],
+          children: [
+            Header(),
+            Description(),
+            Comments(),
+          ],
         ));
   }
 }
